@@ -23,8 +23,6 @@ export const CartInfo = () => {
 		borders,
 	} = cartDeatils[0];
 
-	console.log(languages);
-
 	const currens = currencies.map((curr) => {
 		return curr.name;
 	});
