@@ -32,6 +32,11 @@ export const CartInfo = () => {
 	const closeHandler = () => {
 		disaptch(countrySlice.actions.closeCart());
 	};
+	const showMoreHandler = (e: React.MouseEvent) => {
+		const target = e.target as HTMLButtonElement;
+		const value = target.textContent;
+		disaptch(countrySlice.actions.openCart(value));
+	};
 
 	return (
 		<section className='min-h-screen lg:min-h-0 p-2 md:p-0'>
@@ -78,15 +83,26 @@ export const CartInfo = () => {
 						</p>
 					</div>
 					<div className=' lg:absolute lg:left-1/2 lg:bottom-5 lg:translate-x-[-50%] flex flex-col lg:block w-full lg:items-center lg:pl-10 pb-2 pt-2 sm:text-lg'>
-						<p className='font-semibold mt-4'>Border Countries:</p>
-						<div>
-							<button
-								className={`shadow-md p-2 pl-4 pr-4 mr-3 mt-3 md:mt-6 ${
-									dark ? 'bg-dark-el text-dark-mode-text' : 'bg-dark-mode-text text-light-mode-text'
-								}`}>
-								France
-							</button>
-						</div>
+						{borders && (
+							<>
+								<p className='font-semibold mt-4'>Border Countries:</p>
+								<div>
+									{borders.map((border: string) => (
+										<button
+											onClick={showMoreHandler}
+											key={border}
+											className={` shadow-md p-2 pl-4 pr-4 mr-3 mt-3 md:mt-6 ${
+												dark
+													? 'bg-dark-el text-dark-mode-text'
+													: 'bg-dark-mode-text text-light-mode-text'
+											}`}>
+											{border}
+										</button>
+									))}
+								</div>
+							</>
+						)}
+						{!borders && <p className='font-semibold mt-4'>This country has no neighbors </p>}
 					</div>
 				</div>
 			</div>

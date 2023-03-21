@@ -44,11 +44,12 @@ export const countrySlice = createSlice({
 			state.isCountryOpen = true;
 			state.openCountryId = action.payload;
 			state.countryInfo = state.countries.filter(
-				(country: any) => country.id === state.openCountryId
+				(country: any) => country.code === state.openCountryId
 			);
 		},
 		closeCart(state) {
 			state.isCountryOpen = false;
 		},
+		
 	},
 });

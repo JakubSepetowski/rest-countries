@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { countrySlice } from '../../store/countires-slice';
-
+import { inputSlice } from '../../store/input-slice';
 interface Props {
 	name: string;
 	id: string;
@@ -18,6 +18,8 @@ export const Cart = (props: Props) => {
 		const target = e.target as HTMLDivElement;
 		const atribute = target.getAttribute('data-id');
 		dispatch(countrySlice.actions.openCart(atribute));
+		dispatch(inputSlice.actions.resetValue());
+		dispatch(countrySlice.actions.changeFilter('0'));
 	};
 
 	return (
@@ -32,14 +34,14 @@ export const Cart = (props: Props) => {
 			</div>
 			<div className='p-4 w-full pb-8 pointer-events-none'>
 				<h2 className='font-bold mb-4 mt-2 pointer-events-none'>{props.name}</h2>
-				<p>
-					Population: <span>{props.pop}</span>
+				<p className='font-semibold'>
+					Population: <span className='text-light-input' >{props.pop}</span>
 				</p>
-				<p>
-					Region: <span>{props.reg}</span>
+				<p className='font-semibold'>
+					Region: <span className='text-light-input' >{props.reg}</span>
 				</p>
-				<p>
-					Capital: <span>{props.cap}</span>
+				<p className='font-semibold'>
+					Capital: <span className='text-light-input' >{props.cap}</span>
 				</p>
 			</div>
 		</div>
