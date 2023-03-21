@@ -11,9 +11,6 @@ const initialCountry: InitialCountryInterface = {
 	countryInfo: [],
 };
 
-
-
-
 export const countrySlice = createSlice({
 	name: 'country',
 	initialState: initialCountry,

@@ -4,8 +4,7 @@ import { Main } from './layout/main/Main';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { countrySlice } from '../src/store/countires-slice';
-
-import { Country, JSONValue } from './types/types';
+import { Country, Data } from './types/types';
 
 let isInitital = true;
 export const App = () => {
@@ -19,9 +18,9 @@ export const App = () => {
 				Accept: 'application/json',
 			},
 		});
-		const data: JSONValue = await res.json();
+		const data: Data[] = await res.json();
 		const redcuedData: Country[] = [];
-		data.forEach((country: any) => {
+		data.forEach((country) => {
 			redcuedData.push({
 				id: country.numericCode,
 				code: country.alpha3Code,

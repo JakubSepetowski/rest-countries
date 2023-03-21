@@ -23,14 +23,9 @@ export const CartInfo = () => {
 		borders,
 	} = cartDeatils[0];
 
-	console.log(currencies);
-	interface Curr {
-		code: string;
-		name: string;
-		symbol: string;
-	}
+	console.log(languages);
 
-	const currens = currencies.map((curr: Curr) => {
+	const currens = currencies.map((curr) => {
 		return curr.name;
 	});
 	const langs = languages.map((lang) => {
