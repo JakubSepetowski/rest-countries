@@ -2,11 +2,12 @@ import { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { countrySlice } from '../../store/countires-slice';
 import { inputSlice } from '../../store/input-slice';
+import { RootState } from '../../store/store';
 
 export const Filter = () => {
 	const dispatch = useDispatch();
-	const dark = useSelector((state: any) => state.theme.isDark);
-	const searchValue = useSelector((state: any) => state.input.value);
+	const dark = useSelector((state: RootState) => state.theme.isDark);
+
 
 	const selectOptionHandler = (e: ChangeEvent<HTMLSelectElement>) => {
 		const selected = e.target.value;

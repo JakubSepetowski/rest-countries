@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Country, InitialCountryInterface } from '../types/types';
 
-const initialCountry = {
+const initialCountry: InitialCountryInterface = {
 	countries: [],
 	filter: '0',
 	filteredArray: [],
@@ -9,6 +10,9 @@ const initialCountry = {
 	openCountryId: '',
 	countryInfo: [],
 };
+
+
+
 
 export const countrySlice = createSlice({
 	name: 'country',
@@ -23,18 +27,18 @@ export const countrySlice = createSlice({
 			if (state.filter === '0') state.filteredArray = state.countries;
 			else
 				state.filteredArray = state.countries.filter(
-					(country: any) => country.region === state.filter
+					(country: Country) => country.region === state.filter
 				);
 			state.isEmpty = false;
 		},
 		searchFor(state, action) {
 			if (state.filter === '0')
-				state.filteredArray = state.countries.filter((country: any) =>
+				state.filteredArray = state.countries.filter((country: Country) =>
 					country.name.toLowerCase().includes(action.payload.toLowerCase())
 				);
 			else
 				state.filteredArray = state.countries.filter(
-					(country: any) =>
+					(country: Country) =>
 						country.name.toLowerCase().includes(action.payload.toLowerCase()) &&
 						country.region === state.filter
 				);
@@ -44,12 +48,11 @@ export const countrySlice = createSlice({
 			state.isCountryOpen = true;
 			state.openCountryId = action.payload;
 			state.countryInfo = state.countries.filter(
-				(country: any) => country.code === state.openCountryId
+				(country: Country) => country.code === state.openCountryId
 			);
 		},
 		closeCart(state) {
 			state.isCountryOpen = false;
 		},
-		
 	},
 });

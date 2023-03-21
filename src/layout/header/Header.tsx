@@ -3,10 +3,11 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux/es/exports';
 import { themeSlice } from '../../store/theme-slice';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 export const Header = () => {
 	const dispatch = useDispatch();
-	const dark = useSelector((state: any) => state.theme.isDark);
+	const dark = useSelector((state: RootState) => state.theme.isDark);
 
 	const themeSwitchHanlder = () => {
 		dispatch(themeSlice.actions.changeTheme());

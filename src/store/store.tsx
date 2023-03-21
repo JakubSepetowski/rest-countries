@@ -10,3 +10,6 @@ export const store = configureStore({
 		input: inputSlice.reducer,
 	},
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

@@ -3,11 +3,12 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { countrySlice } from '../../store/countires-slice';
+import { RootState } from '../../store/store';
 
 export const CartInfo = () => {
 	const disaptch = useDispatch();
-	const dark = useSelector((state: any) => state.theme.isDark);
-	const cartDeatils = useSelector((state: any) => state.countries.countryInfo);
+	const dark = useSelector((state: RootState) => state.theme.isDark);
+	const cartDeatils = useSelector((state: RootState) => state.countries.countryInfo);
 	const {
 		name,
 		population,
@@ -22,10 +23,17 @@ export const CartInfo = () => {
 		borders,
 	} = cartDeatils[0];
 
-	const currens = currencies.map((curr: any) => {
+	console.log(currencies);
+	interface Curr {
+		code: string;
+		name: string;
+		symbol: string;
+	}
+
+	const currens = currencies.map((curr: Curr) => {
 		return curr.name;
 	});
-	const langs = languages.map((lang: any) => {
+	const langs = languages.map((lang) => {
 		return lang.name;
 	});
 

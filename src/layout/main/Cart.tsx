@@ -2,18 +2,12 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { countrySlice } from '../../store/countires-slice';
 import { inputSlice } from '../../store/input-slice';
-interface Props {
-	name: string;
-	id: string;
-	pop: string;
-	cap: string;
-	reg: string;
-	flag: string;
-}
+import { RootState } from '../../store/store';
+import { CartProps } from '../../types/types';
 
-export const Cart = (props: Props) => {
+export const Cart = (props: CartProps) => {
 	const dispatch = useDispatch();
-	const dark = useSelector((state: any) => state.theme.isDark);
+	const dark = useSelector((state: RootState) => state.theme.isDark);
 	const openCartHandler = (e: React.MouseEvent<HTMLDivElement>) => {
 		const target = e.target as HTMLDivElement;
 		const atribute = target.getAttribute('data-id');
@@ -35,13 +29,13 @@ export const Cart = (props: Props) => {
 			<div className='p-4 w-full pb-8 pointer-events-none'>
 				<h2 className='font-bold mb-4 mt-2 pointer-events-none'>{props.name}</h2>
 				<p className='font-semibold'>
-					Population: <span className='text-light-input' >{props.pop}</span>
+					Population: <span className='text-light-input'>{props.pop}</span>
 				</p>
 				<p className='font-semibold'>
-					Region: <span className='text-light-input' >{props.reg}</span>
+					Region: <span className='text-light-input'>{props.reg}</span>
 				</p>
 				<p className='font-semibold'>
-					Capital: <span className='text-light-input' >{props.cap}</span>
+					Capital: <span className='text-light-input'>{props.cap}</span>
 				</p>
 			</div>
 		</div>

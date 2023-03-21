@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import { Cart } from './Cart';
+import { RootState } from '../../store/store';
 
 export const Carts = () => {
-	const countries = useSelector((state: any) => state.countries.filteredArray);
-	const isEmpty = useSelector((state: any) => state.countries.isEmpty);
-	const dark = useSelector((state: any) => state.theme.isDark);
+	const countries = useSelector((state: RootState) => state.countries.filteredArray);
+	const isEmpty = useSelector((state: RootState) => state.countries.isEmpty);
+	const dark = useSelector((state: RootState) => state.theme.isDark);
 
 	return (
 		<>
