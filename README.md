@@ -1,6 +1,8 @@
 # rest-countries made with: React, TypeScript, Redux, tailwindcss, Rest-api
 
-##Search countries and find out things that none of your friends know about
+## Search countries and find out things that none of your friends know about
+
+### Live demo: https://mycountry-info.netlify.app/
 
 ### Features
 - Searching for country
