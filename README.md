@@ -18,6 +18,6 @@
 ![image](https://user-images.githubusercontent.com/114868887/226712499-62483e09-775f-4a70-aad3-2d4553859a0e.png)
 
 <div align="center">
-   <img src="https://user-images.githubusercontent.com/114868887/226712629-6f565a5d-ef1b-41fc-875b-1cbf0ba243e6.png">
+   <img  width="460" height="500" src="https://user-images.githubusercontent.com/114868887/226712629-6f565a5d-ef1b-41fc-875b-1cbf0ba243e6.png">
 
 </div>
