@@ -5,7 +5,9 @@ const initialCountry = {
 	filter: '0',
 	filteredArray: [],
 	isEmpty: false,
-
+	isCountryOpen: false,
+	openCountryId: '',
+	countryInfo: [],
 };
 
 export const countrySlice = createSlice({
@@ -14,7 +16,7 @@ export const countrySlice = createSlice({
 	reducers: {
 		init(state, action) {
 			state.countries = action.payload;
-			state.filteredArray = state.countries;
+			state.filteredArray = [...state.countries];
 		},
 		changeFilter(state, action) {
 			state.filter = action.payload;
@@ -37,6 +39,16 @@ export const countrySlice = createSlice({
 						country.region === state.filter
 				);
 			state.filteredArray.length === 0 ? (state.isEmpty = true) : (state.isEmpty = false);
+		},
+		openCart(state, action) {
+			state.isCountryOpen = true;
+			state.openCountryId = action.payload;
+			state.countryInfo = state.countries.filter(
+				(country: any) => country.id === state.openCountryId
+			);
+		},
+		closeCart(state) {
+			state.isCountryOpen = false;
 		},
 	},
 });
